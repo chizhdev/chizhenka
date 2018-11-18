@@ -1,5 +1,5 @@
 ---
-active: true
+active: false
 section-main:
   button-main: Inscribirse
   heading-main: Buenos días. Estoy perdido. No hablo español. ¿Podrías hablar más despacio?
