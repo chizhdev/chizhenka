@@ -1,0 +1,142 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.h1, .h2, .h3, .h4, .h5 {
+  font-family: $ff-headings;
+  letter-spacing: .5px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.h1 {
+  font-size: 3.2rem;
+  @media only screen and (max-width: 1024px) {
+    font-size: 2.4rem;
+  }
+  @media only screen and (max-width: 800px) {
+    font-size: 1.6rem;
+  }
+}
+
+.h2 {
+  font-size: 2.4rem;
+  @media only screen and (max-width: 800px) {
+    font-size: 1.8rem;
+  }
+}
+
+.h3 {
+  font-size: 1.3rem;
+  @media only screen and (max-width: 800px) {
+    font-size: 1.2rem;
+  }
+}
+
+.h4, .h5 {
+  font-size: 1.1rem;
+}
+
+.t-line {
+  @media screen and (min-width: 600px) {
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background-color: $primary;
+    }
+  }
+}
+
+// links
+
+a, .link {
+  color: $primary;
+  transition: opacity .1s;
+  will-change: opacity;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    opacity: .8;
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+[data-toggle="modal"] {
+  cursor: pointer;
+  outline: none;
+}
+
+// sizes
+.fs-s {
+  font-size: .85rem;
+}
+
+.fs-n {
+  font-size: 1rem;
+}
+
+.fs-m {
+  font-size: 1.2rem;
+}
+
+.fs-l {
+  font-size: 1.5rem;
+}
+
+.fs-xl {
+  font-size: 3rem;
+}
+
+.fs-xxl {
+  font-size: 6rem;
+}
+
+// weights
+.fw-n {
+  font-weight: 400;
+}
+
+.fw-m {
+  font-weight: 500;
+}
+
+.fw-l {
+  font-weight: 700;
+}
+
+// colors
+.text-white {
+  color: $white;
+}
+
+.text-purple {
+  color: $purple;
+}
+
+// bgs
+.bg-lightest {
+  background-color: $lightest;
+}
+
+.bg-dark {
+  background-color: #444;
+}
+
+.bg-grad {
+  background-image: $grad-main;
+}
+
+
+// text disabled
+.text-disabled {
+  cursor: default;
+  pointer-events: none;
+  opacity: .5;
+}

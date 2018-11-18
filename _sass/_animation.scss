@@ -1,0 +1,43 @@
+$speed: .4s;
+$delay-1: .2s;
+$delay-2: .4s;
+$delay-3: .6s;
+$delay-4: .8s;
+$delay-5: 1s;
+
+// Make element ready for animation
+[class*="animate-"] {
+  will-change: transform;
+  opacity: 1;
+  transform: scale(1);
+  animation-name: showElement;
+  animation-duration: $speed;
+  animation-fill-mode: both;
+}
+
+// Animation triggers inside sections and trigger for header
+.section.is-animated, body.state-1 header.header-desktop-lg {
+  .animate-1 {
+    animation-delay: $delay-1;
+  }
+  .animate-2 {
+    animation-delay: $delay-2;
+  }
+  .animate-3 {
+    animation-delay: $delay-3;
+  }
+  .animate-4 {
+    animation-delay: $delay-4;
+  }
+  .animate-5 {
+    animation-delay: $delay-5;
+  }
+}
+
+// Animation behaviour
+@keyframes showElement {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}

@@ -1,0 +1,409 @@
+.block-dropdown {
+  position: relative;
+  .block-dropdown-trigger {
+    @extend .link;
+    &:after {
+      content: "";
+      display: inline-block;
+      margin-left: .35rem;
+      margin-bottom: .1rem;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid $blue;
+    }
+  }
+  .block-dropdown-menu {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    top: 3rem;
+    left: .7rem;
+    background-color: $white;
+    box-shadow: $shadow-m;
+    border-radius: .2rem;
+    .block-dropdown-item {
+      display: block;
+      margin-top: .75rem;
+      margin-bottom: .75rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  &.is-open .block-dropdown-menu {
+    display: block;
+  }
+}
+
+.block-hero {
+  @media only screen and (min-width: 801px) {
+    margin-top: 6rem;
+  }
+  img {
+    margin-bottom: 1rem;
+    @media only screen and (max-width: 800px) {
+      width: 50vw;
+    }
+  }
+}
+
+.block-features {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid $white;
+  .block-features-item {
+    margin-top: 1.5rem;
+    @media screen and (min-width: 1025px) {
+      padding-right: 2rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: .4px;
+    }
+  }
+}
+
+.block-events {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .block-events-item {
+    flex: 0 0 95%;
+    margin-bottom: 3.5rem;
+    border-radius: $rad;
+    @media screen and (min-width: 992px) {
+      flex: 0 0 20%;
+      margin-bottom: 0;
+    }
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    min-height: 300px;
+    background-color: $grad-main;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: $shadow-m;
+    .block-events-item-text {
+      height: 120px;
+      width: 100%;
+      background-color: $white;
+      padding: 1rem;
+      overflow: hidden;
+      display: inline-block;
+      font-size: .95rem;
+      color: #222;
+      border-radius: 0 0 $rad $rad;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2rem;
+        width: 100%;
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) 50%);
+      }
+    }
+  }
+  .block-events-item.block-events-calendar {
+    display: block;
+    overflow: hidden;
+    color: $white;
+    @extend .bg-grad;
+    .block-events-calendar-inner {
+      overflow-y: auto;
+      height: 100%;
+      padding: 1rem;
+      .block-events-calendar-item {
+        margin-bottom: .5rem;
+        small {
+          font-weight: 800;
+          color: $yellow;
+        }
+        a {
+          color: $white;
+        }
+      }
+
+    }
+  }
+}
+
+.block-schedule {
+  @media screen and (min-width: 1025px) {
+    column-count: 2;
+    column-gap: 6rem;
+    margin: 0 auto;
+  }
+  .block-schedule-item {
+    break-inside: avoid-column;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: .7rem;
+    padding-top: .7rem;
+    border-top: 1px solid lighten($primary, 35%);
+    border-bottom: 1px solid lighten($primary, 35%);
+    margin-bottom: -1px;
+    strong {
+      flex: 1 0 30%;
+      color: lighten($blueGray, 20%);
+      white-space: nowrap;
+      padding-right: .5rem;
+    }
+    span {
+      flex: 1 0 100%;
+      @media screen and (min-width: 600px) {
+        flex: 1 0 70%;
+      }
+    }
+  }
+}
+
+.block-weekly-card {
+  display: flex;
+  flex-wrap: wrap;
+  .card {
+    flex: 1 0 20%;
+    @media screen and (max-width: 1200px) {
+      font-size: .9rem;
+    }
+    @media screen and (max-width: 900px) {
+      flex: 1 0 33.3333%;
+    }
+    @media screen and (max-width: 600px) {
+      flex: 1 0 100%;
+      font-size: 1rem;
+    }
+    border-radius: 0;
+    border: none;
+    .card-header {
+      font-weight: 800;
+      color: $cyan;
+      background-color: transparent;
+      border: none;
+      padding-top: 1rem;
+      padding-bottom: .3rem;
+    }
+    .card-body {
+      border: 1px solid lighten($primary, 35%);
+      border-top-width: 2px;
+      margin-right: -1px;
+      .card-body-header {
+        font-size: .75rem;
+        font-weight: 600;
+        color: $cyan;
+        &:not(:first-child) {
+          margin-top: 1.25rem;
+        }
+      }
+      p {
+        margin-bottom: .2rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+    }
+  }
+}
+
+.block-weekly-card-menu {
+  @extend .block-weekly-card;
+  .card {
+    font-size: .95rem;
+    .card-header {
+      color: $pink;
+    }
+    .card-body {
+      border: 1px solid lighten($pink, 42%);
+      border-top-width: 2px;
+      .card-body-header {
+        color: $pink;
+      }
+    }
+  }
+}
+
+.block-nav-pills {
+  border: 2px solid $primary;
+  border-radius: $rad;
+  font-weight: 500;
+  flex-wrap: nowrap;
+  .nav-link {
+    border-radius: 0;
+    @media screen and (max-width: 600px) {
+      font-size: .85rem;
+      padding: 0.25rem .5rem;
+    }
+    &.active {
+      background-color: $primary;
+    }
+  }
+}
+
+.block-carousel {
+  .carousel-item {
+    width: 100%;
+    padding-top: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: lighten($gray, 15%)
+  }
+}
+
+.block-persons {
+  display: flex;
+  flex-wrap: wrap;
+  .block-persons-item {
+    @media screen and (min-width: 501px) {
+      flex: 1 0 50%;
+      max-width: 50%;
+    }
+    @media screen and (min-width: 900px) {
+      flex: 1 0 25%;
+      max-width: 25%;
+    }
+    margin-bottom: 2rem;
+    padding-right: 1.5rem;
+    h3 {
+      font-size: 1.35rem;
+      margin-top: 1rem;
+    }
+    img {
+      border-radius: $rad;
+      object-fit: cover;
+      border: 1px solid rgba(0, 0, 0, .05);
+    }
+  }
+}
+
+.block-modal {
+  .modal-content {
+    border-color: transparent;
+    box-shadow: 0 35px 54px rgba(0, 0, 0, 0.3), 0 5px 20px rgba(0, 0, 0, 0.07), 0 0px 1px rgba(0, 0, 0, 0.12);
+    .modal-body {
+      @media screen and (min-width: 600px) {
+        padding: 2rem 3rem;
+      }
+    }
+  }
+}
+
+.block-modal-full {
+  .modal-dialog {
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+    .modal-content {
+      border-radius: 0;
+      min-height: 100vh;
+    }
+  }
+}
+
+.block-pricing {
+  .block-pricing-item {
+    margin-bottom: 2rem;
+    .card {
+      height: 100%;
+      margin-bottom: 0;
+      border-color: transparent;
+      box-shadow: $shadow-m;
+    }
+    .card-special {
+      background-color: $primary;
+      color: $white;
+      .price-main {
+        color: $white;
+      }
+    }
+  }
+  .price-main, .price-secondary {
+    font-size: 1.6rem;
+    color: $purple;
+    font-weight: 800;
+    margin-bottom: 0;
+    small {
+      font-size: .85rem;
+    }
+  }
+  .price-secondary {
+    color: #444;
+  }
+  .price-text {
+    margin-top: 1.75rem;
+    font-size: .85rem;
+    margin-bottom: 0;
+  }
+  .price-subtitle {
+    font-size: .85rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.block-socials {
+  display: flex;
+  flex-wrap: wrap;
+  //border: 1px solid red;
+  .block-socials-item {
+    //border: 1px solid purple;
+    flex: 1 0 33.3333%;
+    max-width: 33%;
+    min-height: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    strong {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.block-map {
+  font-size: 0;
+}
+
+/* todo: legacy */
+.block-weekly {
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: lighten(#CFD5E0, 15%);
+  }
+  table {
+    thead th {
+      border-top: 1px solid lighten($primary, 35%);
+      border-bottom: 2px solid lighten($primary, 35%);
+      &:not(:first-child) {
+        min-width: 200px;
+      }
+    }
+    tbody th {
+      @media screen and (min-width: 900px) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+    td, th {
+      border-top: 1px solid lighten($primary, 35%);
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+    }
+    th {
+      color: $cyan;
+    }
+  }
+  &.block-weekly-menu {
+    table {
+      th {
+        color: $deepOrange;
+      }
+      td {
+        font-size: .9rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+// buttons
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: .85rem 3rem;
+  border-radius: .25rem;
+  white-space: nowrap;
+  font-weight: 600;
+  @extend .fs-m;
+  &.btn-sm {
+    padding: .4rem 1rem;
+    @extend .fs-s, .fw-m;
+  }
+  &.btn-yellow {
+    background-color: $yellow;
+    color: $black;
+  }
+}
+
+.btn-mobile-menu {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 100%;
+  z-index: 999;
+  background: rgba($black, 0.3);
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: $white;
+  }
+}
+
+// select
+.custom-select.custom-select-lg {
+  font-size: 1rem;
+}
+
+// validation alert
+.was-validated {
+  .form-control:invalid, select:invalid, textarea:invalid {
+    will-change: transform;
+    animation: shake .75s;
+  }
+}
+
+@keyframes shake {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+// honey pot element
+.catch {
+  visibility: hidden;
+  opacity: 0;
+}

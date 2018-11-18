@@ -1,0 +1,30 @@
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+
+    {% seo %}
+
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Vollkorn:400,600,700&amp;subset=cyrillic"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/css/main.css">
+    <style>
+        body {
+            transition: opacity .3s .15s;
+            opacity: 0;
+        }
+
+        body.is-loaded {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.add('is-loaded');
+        });
+    </script>
+
+</head>

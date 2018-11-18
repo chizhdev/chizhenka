@@ -1,0 +1,121 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+
+<html lang="{{page.lang}}">
+
+{% include head.html %}
+
+<body>
+
+<header class="header-desktop-lg">
+    <div class="container">
+        <div class="menu menu-extra">
+            <a class="menu-item fs-m"
+               href="{{site.url}}{{site.baseurl}}/">
+                <i class="material-icons">arrow_back</i> Детский сад «Чиженька»
+            </a>
+            <span class="menu-item ml-auto fs-m">{{site.phone_number}}</span>
+        </div>
+    </div>
+</header>
+
+
+<section class="section text-white"
+         style="background: url('{{site.url}}{{site.baseurl}}/assets/img/services.jpg') no-repeat center; background-size: cover; ">
+    <div class="container">
+        <div class="row block-hero">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="h1 mb-4">Занятия для детей
+                    <div class="h2">(и время от времени — для их родителей)</div>
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container block-pricing">
+        <div class="row">
+
+            {% for activity in site.activities %}
+
+            <div class="col-lg-4 block-pricing-item">
+                <a class="card text-dark border-0" href="{{site.url}}{{site.baseurl}}{{activity.url}}" data-toggle="modal" data-target=".js-modal-activity-{{forloop.index}}">
+                    <img class="card-img-top" src="{{site.url}}{{site.baseurl}}{{activity.thumbnail}}"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="h3 fw-l card-title">{{activity.title}} {{forloop.index}}</h2>
+                        <p class="card-text">{{activity.subtitle}}</p>
+                    </div>
+                    {% if activity.price != '' %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <h5 class="price-main">{{activity.price}} <small>{{activity.price_desc}}</small>
+                                </h5>
+                            </li>
+                        </ul>
+                    {% endif %}
+                </a>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% for activity-modal in site.activities %}
+
+    <div class="modal fade block-modal js-modal-activity-{{ forloop.index }}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="h2 mb-4">{{activity-modal.title}}</h3>
+                <img class="img-fluid" src="{{site.url}}{{site.baseurl}}{{activity-modal.thumbnail}}">
+                <div class="py-4">{{ activity-modal.content }}</div>
+                <ul class="list-group list-group-flush block-pricing">
+                    <li class="list-group-item">
+                        <h5 class="price-main">{{activity-modal.price}} <small>{{activity-modal.price_desc}}</small>
+                        </h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+
+{{ content }}
+
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/jquery-3.2.1.slim.min.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/popper.min.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/bootstrap.min.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/init-stuff.js"></script>
+
+<script>
+
+    // Netlify identity
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function (user) {
+            if (!user) {
+                window.netlifyIdentity.on("login", function () {
+                    document.location.href = "/admin/";
+                });
+            }
+        });
+    }
+
+</script>
+
+</body>
+</html>

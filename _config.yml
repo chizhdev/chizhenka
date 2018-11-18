@@ -1,0 +1,47 @@
+title: Детский сад «Чиженька»
+email: your-email@example.com
+description: «Чиженька» — детский сад доверительного воспитания в центре Питера. Домашняя атмосфера круглые сутки.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+logo: /assets/img/logo-full.png
+image: /assets/img/logo-full.png
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - .sass-cache
+  - .idea
+
+collections:
+  - activities
+  - announces
+
+defaults:
+  -
+    scope:
+      path: "index.md"
+    values:
+      lang: "ru"
+      menu_item: "Русский"
+      layout: "homepage"
+  -
+    scope:
+      path: "es/index.md"
+    values:
+      lang: "es"
+      menu_item: "Español"
+      layout: "homepage"
+  -
+    scope:
+      path: "en/index.md"
+    values:
+      lang: "en"
+      menu_item: "English"
+      layout: "homepage"

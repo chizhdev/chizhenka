@@ -1,0 +1,613 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "assets/img"
+public_folder: "assets/img"
+
+
+collections:
+
+- label: "Домашняя страница"
+  name: "versions"
+  delete: false
+  files:
+
+    - label: "Español"
+      name: "espanol"
+      file: "es/index.md"
+      fields:
+        - {label: "Страница включена", name: "active", widget: "boolean"}
+
+        - label: "Интро"
+          name: "section-main"
+          widget: "object"
+          fields:
+            - {label: "Основной заголовок сайта", name: "heading-main", widget: "string"}
+            - {label: "Текст для главной кнопки", name: "button-main", widget: "string"}
+            - label: "Фоновые фотографии для первой секции"
+              name: "photos"
+              widget: "list"
+              fields:
+                - {label: "Фотография (желательно минимум 1400 на 800 пикселей)", name: "photo", widget: "image"}
+            - label: "Фичеры"
+              name: "texts-featured"
+              widget: "list"
+              fields:
+                - {label: "Заголовок фичера", name: "texts-featured-heading", widget: "string"}
+                - {label: "Текст, поясняющий фичер", name: "texts-featured-description", widget: "string"}
+
+        - label: "События"
+          name: "section-events"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Ссылка на все новости", name: "link", widget: "string"}
+            - {label: "Текст ссылки", name: "link-text", widget: "string"}
+            - {}
+
+        - label: "Программа"
+          name: "section-program"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - label: "Вкладки в этой секции"
+              name: "section-tab"
+              widget: "object"
+              fields:
+                - {label: "Заголовок вкладки «Распорядок»", name: "tab-schedule-heading", widget: "string"}
+                - label: "Вкладка «Распорядок»"
+                  name: "tab-schedule"
+                  widget: "object"
+                  fields:
+                    - label: Время и событие
+                      name: "tab-schedule-item"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Событие (пример: Встреча детей)", name: "value", widget: "string"}
+                - {label: "Заголовок вкладки «Занятия»", name: "tab-lessons-heading", widget: "string"}
+                - label: "Вкладка «Занятия»"
+                  name: "tab-lessons"
+                  widget: "object"
+                  fields:
+                    - label: "Занятия в понедельник"
+                      name: "lessons-monday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия во вторник"
+                      name: "lessons-tuesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия в среду"
+                      name: "lessons-wednesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия в четверг"
+                      name: "lessons-thursday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия в пятницу"
+                      name: "lessons-friday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                - {label: "Заголовок вкладки «Меню»", name: "tab-menu-heading", widget: "string"}
+                - label: "Вкладка «Меню»"
+                  name: "tab-menu"
+                  widget: "object"
+                  fields:
+                    - label: "Monday meals"
+                      name: "menu-monday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Tuesday meals"
+                      name: "menu-tuesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Wednesday meals"
+                      name: "menu-wednesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Thursday meals"
+                      name: "menu-thursday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Friday meals"
+                      name: "menu-friday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время))", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+
+        - label: "Место"
+          name: "section-place"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Описание", name: "description", widget: "text"}
+            - label: "Фотографии"
+              name: "photos"
+              widget: "list"
+              fields:
+                - {label: "Фотография (желательно с шириной и длиной 5 к 3, например 1000 и 600 пикселей)", name: "photo", widget: "image"}
+
+        - label: "Воспитатели"
+          name: "section-persons"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - label: Люди
+              name: persons
+              widget: list
+              fields:
+              - {label: "Имя", name: "name", widget: "string"}
+              - {label: "Должность", name: "position", widget: "string"}
+              - {label: "Фотография", name: "photo", widget: "image"}
+              - {label: "Описание", name: "desc", widget: "markdown"}
+
+        - label: "Стоимость"
+          name: "section-pricing"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Сообщение справа от заголовка", name: "extra-text", widget: "string"}
+            - label: "Ряд групп"
+              name: "group-row"
+              widget: "list"
+              fields:
+                - {label: "Название ряда", name: "group-row-heading", widget: "string"}
+                - {label: "Подзаголовок ряда", name: "group-row-subheading", widget: "string"}
+                - label: "Карточки групп"
+                  name: "group"
+                  widget: "list"
+                  fields:
+                    - {label: "Описание группы", name: "group-desc", widget: "string"}
+                    - {label: "Цена", name: "group-price", widget: "string"}
+                    - {label: "Подпись к цене", name: "group-price-text", widget: "string"}
+                    - {label: "Дополнительная цена", name: "group-price-extra", widget: "string"}
+                    - {label: "Подпись к дополнительной цене", name: "group-price-extra-text", widget: "string"}
+                    - {label: "Примечание", name: "group-comment", widget: "string"}
+                    - {label: "Выделенная карточка (покрасится в синий)", name: "group-special", widget: "boolean"}
+
+        - label: "Контакты"
+          name: "section-contact"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Название сада", name: "name", widget: "string"}
+            - {label: "Телефон", name: "phone", widget: "string"}
+            - {label: "Viber", name: "viber", widget: "string"}
+            - {label: "Адрес", name: "address", widget: "string"}
+            - {label: "Как добраться", name: "route", widget: "text"}
+            - {label: "Ссылка на карту в Яндексе", name: "map", widget: "string"}
+            - label: Социальные сети
+              name: socials
+              widget: list
+              fields:
+                - {label: "Название соцсети", name: "socials-name", widget: "string"}
+                - {label: "Ссылка", name: "socials-link", widget: "string"}
+
+    - label: "English"
+      name: "english"
+      file: "en/index.md"
+      fields:
+
+        - {label: "Страница включена", name: "active", widget: "boolean"}
+
+        - label: "Интро"
+          name: "section-main"
+          widget: "object"
+          fields:
+            - {label: "Основной заголовок сайта", name: "heading-main", widget: "string"}
+            - {label: "Текст для главной кнопки", name: "button-main", widget: "string"}
+            - label: "Фоновые фотографии для первой секции"
+              name: "photos"
+              widget: "list"
+              fields:
+                - {label: "Фотография (желательно минимум 1400 на 800 пикселей)", name: "photo", widget: "image"}
+            - label: "Фичеры"
+              name: "texts-featured"
+              widget: "list"
+              fields:
+                - {label: "Заголовок фичера", name: "texts-featured-heading", widget: "string"}
+                - {label: "Текст, поясняющий фичер", name: "texts-featured-description", widget: "string"}
+
+        - label: "События"
+          name: "section-events"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Ссылка на все новости", name: "link", widget: "string"}
+            - {label: "Текст ссылки", name: "link-text", widget: "string"}
+
+        - label: "Программа"
+          name: "section-program"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - label: "Вкладки в этой секции"
+              name: "section-tab"
+              widget: "object"
+              fields:
+                - {label: "Заголовок вкладки «Распорядок»", name: "tab-schedule-heading", widget: "string"}
+                - label: "Вкладка «Распорядок»"
+                  name: "tab-schedule"
+                  widget: "object"
+                  fields:
+                    - label: Время и событие
+                      name: "tab-schedule-item"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Событие (пример: Встреча детей)", name: "value", widget: "string"}
+                - {label: "Заголовок вкладки «Занятия»", name: "tab-lessons-heading", widget: "string"}
+                - label: "Вкладка «Занятия»"
+                  name: "tab-lessons"
+                  widget: "object"
+                  fields:
+                    - label: "Занятия в понедельник"
+                      name: "lessons-monday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия во вторник"
+                      name: "lessons-tuesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия в среду"
+                      name: "lessons-wednesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия в четверг"
+                      name: "lessons-thursday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия в пятницу"
+                      name: "lessons-friday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                - {label: "Заголовок вкладки «Меню»", name: "tab-menu-heading", widget: "string"}
+                - label: "Вкладка «Меню»"
+                  name: "tab-menu"
+                  widget: "object"
+                  fields:
+                    - label: "Monday meals"
+                      name: "menu-monday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Tuesday meals"
+                      name: "menu-tuesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Wednesday meals"
+                      name: "menu-wednesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Thursday meals"
+                      name: "menu-thursday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Friday meals"
+                      name: "menu-friday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время))", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+
+        - label: "Место"
+          name: "section-place"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Описание", name: "description", widget: "text"}
+            - label: "Фотографии"
+              name: "photos"
+              widget: "list"
+              fields:
+                - {label: "Фотография (желательно с шириной и длиной 5 к 3, например 1000 и 600 пикселей)", name: "photo", widget: "image"}
+
+        - label: "Воспитатели"
+          name: "section-persons"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - label: Люди
+              name: persons
+              widget: list
+              fields:
+              - {label: "Имя", name: "name", widget: "string"}
+              - {label: "Должность", name: "position", widget: "string"}
+              - {label: "Фотография", name: "photo", widget: "image"}
+              - {label: "Описание", name: "desc", widget: "markdown"}
+
+        - label: "Стоимость"
+          name: "section-pricing"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Сообщение справа от заголовка", name: "extra-text", widget: "string"}
+            - label: "Ряд групп"
+              name: "group-row"
+              widget: "list"
+              fields:
+                - {label: "Название ряда", name: "group-row-heading", widget: "string"}
+                - {label: "Подзаголовок ряда", name: "group-row-subheading", widget: "string"}
+                - label: "Карточки групп"
+                  name: "group"
+                  widget: "list"
+                  fields:
+                    - {label: "Описание группы", name: "group-desc", widget: "string"}
+                    - {label: "Цена", name: "group-price", widget: "string"}
+                    - {label: "Подпись к цене", name: "group-price-text", widget: "string"}
+                    - {label: "Дополнительная цена", name: "group-price-extra", widget: "string"}
+                    - {label: "Подпись к дополнительной цене", name: "group-price-extra-text", widget: "string"}
+                    - {label: "Примечание", name: "group-comment", widget: "string"}
+                    - {label: "Выделенная карточка (покрасится в синий)", name: "group-special", widget: "boolean"}
+
+        - label: "Контакты"
+          name: "section-contact"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Название сада", name: "name", widget: "string"}
+            - {label: "Телефон", name: "phone", widget: "string"}
+            - {label: "Viber", name: "viber", widget: "string"}
+            - {label: "Адрес", name: "address", widget: "string"}
+            - {label: "Как добраться", name: "route", widget: "text"}
+            - {label: "Ссылка на карту в Яндексе", name: "map", widget: "string"}
+            - label: Социальные сети
+              name: socials
+              widget: list
+              fields:
+                - {label: "Название соцсети", name: "socials-name", widget: "string"}
+                - {label: "Ссылка", name: "socials-link", widget: "string"}
+
+
+    - label: "Русский"
+      name: "russian"
+      file: "index.md"
+      fields:
+
+        - {label: "Страница включена", name: "active", widget: "boolean"}
+
+        - label: "Интро"
+          name: "section-main"
+          widget: "object"
+          fields:
+            - {label: "Основной заголовок сайта", name: "heading-main", widget: "string"}
+            - {label: "Текст для главной кнопки", name: "button-main", widget: "string"}
+            - label: "Фоновые фотографии для первой секции"
+              name: "photos"
+              widget: "list"
+              fields:
+                - {label: "Фотография (желательно минимум 1400 на 800 пикселей)", name: "photo", widget: "image"}
+            - label: "Фичеры"
+              name: "texts-featured"
+              widget: "list"
+              fields:
+                - {label: "Заголовок фичера", name: "texts-featured-heading", widget: "string"}
+                - {label: "Текст, поясняющий фичер", name: "texts-featured-description", widget: "string"}
+
+        - label: "События"
+          name: "section-events"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Ссылка на все новости", name: "link", widget: "string"}
+            - {label: "Текст ссылки", name: "link-text", widget: "string"}
+
+        - label: "Программа"
+          name: "section-program"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - label: "Вкладки в этой секции"
+              name: "section-tab"
+              widget: "object"
+              fields:
+                - {label: "Заголовок вкладки «Распорядок»", name: "tab-schedule-heading", widget: "string"}
+                - label: "Вкладка «Распорядок»"
+                  name: "tab-schedule"
+                  widget: "object"
+                  fields:
+                    - label: Время и событие
+                      name: "tab-schedule-item"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Событие (пример: Встреча детей)", name: "value", widget: "string"}
+                - {label: "Заголовок вкладки «Занятия»", name: "tab-lessons-heading", widget: "string"}
+                - label: "Вкладка «Занятия»"
+                  name: "tab-lessons"
+                  widget: "object"
+                  fields:
+                    - label: "Занятия в понедельник"
+                      name: "lessons-monday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия во вторник"
+                      name: "lessons-tuesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия в среду"
+                      name: "lessons-wednesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия в четверг"
+                      name: "lessons-thursday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                    - label: "Занятия в пятницу"
+                      name: "lessons-friday"
+                      widget: "list"
+                      fields:
+                        - {label: "Время (пример: 9:00)", name: "time", widget: "string"}
+                        - {label: "Занятия (можно несколько – отбивайте их строкой)", name: "lesson", widget: "text"}
+                - {label: "Заголовок вкладки «Меню»", name: "tab-menu-heading", widget: "string"}
+                - label: "Вкладка «Меню»"
+                  name: "tab-menu"
+                  widget: "object"
+                  fields:
+                    - label: "Monday meals"
+                      name: "menu-monday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Tuesday meals"
+                      name: "menu-tuesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Wednesday meals"
+                      name: "menu-wednesday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Thursday meals"
+                      name: "menu-thursday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время)", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+                    - label: "Friday meals"
+                      name: "menu-friday"
+                      widget: "list"
+                      fields:
+                        - {label: "Еда (или время))", name: "meal", widget: "string"}
+                        - {label: "Блюда (можно несколько – отбивайте их строкой)", name: "course", widget: "text"}
+
+        - label: "Место"
+          name: "section-place"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Описание", name: "description", widget: "text"}
+            - label: "Фотографии"
+              name: "photos"
+              widget: "list"
+              fields:
+                - {label: "Фотография (желательно с шириной и длиной 5 к 3, например 1000 и 600 пикселей)", name: "photo", widget: "image"}
+
+        - label: "Воспитатели"
+          name: "section-persons"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - label: Люди
+              name: persons
+              widget: list
+              fields:
+              - {label: "Имя", name: "name", widget: "string"}
+              - {label: "Должность", name: "position", widget: "string"}
+              - {label: "Фотография", name: "photo", widget: "image"}
+              - {label: "Описание", name: "desc", widget: "markdown"}
+
+        - label: "Стоимость"
+          name: "section-pricing"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Сообщение справа от заголовка", name: "extra-text", widget: "string"}
+            - label: "Ряд групп"
+              name: "group-row"
+              widget: "list"
+              fields:
+                - {label: "Название ряда", name: "group-row-heading", widget: "string"}
+                - {label: "Подзаголовок ряда", name: "group-row-subheading", widget: "string"}
+                - label: "Карточки групп"
+                  name: "group"
+                  widget: "list"
+                  fields:
+                    - {label: "Описание группы", name: "group-desc", widget: "string"}
+                    - {label: "Цена", name: "group-price", widget: "string"}
+                    - {label: "Подпись к цене", name: "group-price-text", widget: "string"}
+                    - {label: "Дополнительная цена", name: "group-price-extra", widget: "string"}
+                    - {label: "Подпись к дополнительной цене", name: "group-price-extra-text", widget: "string"}
+                    - {label: "Примечание", name: "group-comment", widget: "string"}
+                    - {label: "Выделенная карточка (покрасится в синий)", name: "group-special", widget: "boolean"}
+
+        - label: "Контакты"
+          name: "section-contact"
+          widget: "object"
+          fields:
+            - {label: "Заголовок секции", name: "section-heading", widget: "string"}
+            - {label: "Название сада", name: "name", widget: "string"}
+            - {label: "Телефон", name: "phone", widget: "string"}
+            - {label: "Viber", name: "viber", widget: "string"}
+            - {label: "Адрес", name: "address", widget: "string"}
+            - {label: "Как добраться", name: "route", widget: "text"}
+            - {label: "Ссылка на карту в Яндексе", name: "map", widget: "string"}
+            - label: Социальные сети
+              name: socials
+              widget: list
+              fields:
+                - {label: "Название соцсети", name: "socials-name", widget: "string"}
+                - {label: "Ссылка", name: "socials-link", widget: "string"}
+
+- label: "Aнонсы в календарь"
+  name: "announces"
+  folder: "_announces/"
+  create: true
+  fields:
+    - {label: "Событие", name: "title", widget: "string"}
+    - {label: "Ссылка", name: "link", widget: "string"}
+    - {label: "Дата", name: "date", widget: "date"}
+
+- label: "Отдельные занятия"
+  name: "activities"
+  folder: "_activities/"
+  create: true
+  fields:
+    - {label: "Заголовок", name: "title", widget: "string"}
+    - {label: "Вводка", name: "subtitle", widget: "string"}
+    - {label: "Картинка", name: "thumbnail", widget: "image"}
+    - {label: "Текст", name: "body", widget: "markdown"}
+    - {label: "Цена", name: "price", widget: "string", required: false}
+    - {label: "Подпись к цене", name: "price_desc", widget: "string", required: false}
+

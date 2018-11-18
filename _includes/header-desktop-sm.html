@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="menu menu-main">
+        <a class="menu-item js-scroll mr-auto" href="#intro">
+            <img src="{{site.url}}{{site.baseurl}}/assets/img/logo-bird.svg" width="32">
+        </a>
+        {% if page.lang == 'ru' %}
+            <a class="menu-item js-scroll" href="#events">{{page.section-events.section-heading}}</a>
+        {% endif %}
+        <div class="menu-item block-dropdown">
+            <span class="block-dropdown-trigger">{{page.section-program.section-heading}}</span>
+            <div class="block-dropdown-menu">
+                <a class="block-dropdown-item js-scroll" data-link="tab-schedule" href="#program">{{page.section-program.section-tab.tab-schedule-heading}}</a>
+                <a class="block-dropdown-item js-scroll" data-link="tab-lessons" href="#program">{{page.section-program.section-tab.tab-lessons-heading}}</a>
+                <a class="block-dropdown-item js-scroll" data-link="tab-menu" href="#program">{{page.section-program.section-tab.tab-menu-heading}}</a>
+            </div>
+        </div>
+        <a class="menu-item js-scroll" href="#place">{{page.section-place.section-heading}}</a>
+        <a class="menu-item js-scroll" href="#persons">{{page.section-persons.section-heading}}</a>
+        <a class="menu-item js-scroll" href="#pricing">{{page.section-pricing.section-heading}}</a>
+        <a class="menu-item js-scroll" href="#contact">{{page.section-contact.section-heading}}</a>
+        <span class="menu-item ml-auto text-white">{{site.phone_number}}</span>
+        <div class="menu-item ml-auto">
+            <a class="btn btn-sm btn-yellow" data-toggle="modal"
+               data-target=".js-modal-order" href="">{{page.section-main.button-main}}</a>
+        </div>
+    </div>
+</div>

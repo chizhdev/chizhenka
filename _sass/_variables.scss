@@ -1,0 +1,39 @@
+// colors
+$red: #F44336;
+$pink: #E91E63;
+$purple: #9C27B0;
+$deepPurple: #673AB7;
+$indigo: #3F51B5;
+$blue: #42A5F5;
+$cyan: #00BCD4;
+$teal: #009688;
+$green: #4CAF50;
+$lightGreen: #8BC34A;
+$lime: #CDDC39;
+$yellow: #FFEB3B;
+$amber: #FFC107;
+$orange: #FF9800;
+$deepOrange: #FF5722;
+$brown: #795548;
+$gray: #9E9E9E;
+$lightest: #fafafa;
+$blueGray: #607D8B;
+$blueGrey: #607D8B;
+$black: #000;
+$white: #fff;
+
+$primary: $blue;
+
+// fonts
+$ff-normal: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$ff-headings: 'Vollkorn', serif;
+
+// global radius
+$rad: 4px;
+
+// shadow
+$shadow-sm: 0 0 3px rgba($black, 0.1);
+$shadow-m: 0 35px 54px rgba(0, 0, 0, 0.1), 0 5px 20px rgba(0, 0, 0, 0.05), 0 0px 1px rgba(0, 0, 0, 0.05);
+
+// gradient
+$grad-main: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);

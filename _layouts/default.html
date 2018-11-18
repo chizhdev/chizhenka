@@ -1,0 +1,24 @@
+---
+---
+
+<!DOCTYPE html>
+
+<html lang="{{page.lang}}">
+
+{% include head.html %}
+
+<body>
+
+{% include svgs.html %}
+
+<header class="header-desktop-lg">{% include header-desktop-lg.html %}</header>
+<header class="header-desktop-sm" data-scroll-header>{% include header-desktop-sm.html %}</header>
+<header class="header-mobile">{% include header-mobile.html %}</header>
+
+{{ content }}
+
+{% include footer.html %}
+
+</body>
+
+</html>

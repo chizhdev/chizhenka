@@ -1,0 +1,32 @@
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/jquery-3.3.1.min.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/popper.min.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/bootstrap.min.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/init-stuff.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/smooth-scroll.min.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/main.js"></script>
+{% if page.url == '/' %}
+<script src="{{site.url}}{{site.baseurl}}/assets/js/signup-form.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/assets/js/news.js"></script>
+{% endif %}
+
+<script>
+
+    // Smooth scroll
+    var scroll = new SmoothScroll('.js-scroll', {
+        header: '[data-scroll-header]',
+        offset: 0
+    });
+
+    // Netlify identity
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function (user) {
+            if (!user) {
+                window.netlifyIdentity.on("login", function () {
+                    document.location.href = "/admin/";
+                });
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,573 @@
+---
+layout: default
+
+---
+
+<!-- Intro Section -->
+<section id="intro" class="section section-main text-white">
+
+    <div class="slideshow-main">
+        {% for photo-item in page.section-main.photos %}
+        <div class="slideshow-main-item"
+             style="background-image:url('{{photo-item.photo}}')"></div>
+        {% endfor %}
+    </div>
+
+    <div class="container">
+        <div class="row block-hero animate-4">
+            <div class="col-md-4 order-md-last">
+                <img class="img-fluid" src="{{site.url}}{{site.baseurl}}/assets/img/logo-full-white.svg" width="250"
+                     height="250"
+                     alt="Чиженька">
+            </div>
+            <div class="col-md-8">
+                <h1 class="h1 mb-4">{{page.section-main.heading-main}}</h1>
+                <a href="#" class="btn btn-yellow" data-toggle="modal" data-target=".js-modal-order">{{page.section-main.button-main}}</a>
+            </div>
+        </div>
+        <div class="row block-features animate-5">
+
+            {% if page.section-main.texts-featured %}
+            {% for feature in page.section-main.texts-featured %}
+
+            <div class="col-md-3 block-features-item">
+                <h3>{{ feature.texts-featured-heading }}</h3>
+                <p>{{ feature.texts-featured-description }}</p>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+
+</section>
+
+<!-- Events Section -->
+{% if page.lang == 'ru' %}
+<section id="events" class="section bg-lightest">
+
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-baseline flex-wrap mb-5">
+            <h2 class="h2 t-line">{{page.section-events.section-heading}}</h2>
+            <a class="fw-m" href="{{page.section-events.link}}" target="_blank">{{page.section-events.link-text}} <i
+                    class="material-icons align-text-bottom fs-m">&#xE89E;</i></a>
+        </div>
+    </div>
+
+    <!-- Vkontakte feed + Calendar -->
+    <div class="block-events js-feed">
+        <div class="block-events-item block-events-calendar animate-5">
+            <div class="block-events-calendar-inner">
+                <div class="fw-m mb-3">
+                    <i class="material-icons align-bottom">&#xE614;</i>
+                    {% if page.lang == 'ru' %}
+                        Анонсы
+                    {% endif %}
+                    {% if page.lang == 'en' %}
+                        Announces
+                    {% endif %}
+                    {% if page.lang == 'es' %}
+                        Anuncia
+                    {% endif %}
+                </div>
+                {% assign announces = site.announces | sort: 'date' %}
+                {% for announce in announces %}
+                    <div class="block-events-calendar-item">
+                        <small>{{announce.date | date: "%d.%m"}}</small>
+                        <div><a href="{{announce.link}}" target="_blank">{{announce.title}}</a></div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+</section>
+{% endif %}
+
+<!-- Program Section -->
+<section id="program" class="section">
+    <div class="container">
+
+        <div class="d-flex align-items-baseline flex-wrap">
+            <h2 class="h2 t-line mr-5">{{page.section-program.section-heading}}</h2>
+
+            <ul class="nav nav-pills block-nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#tab-schedule">{{page.section-program.section-tab.tab-schedule-heading}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#tab-lessons">{{page.section-program.section-tab.tab-lessons-heading}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#tab-menu">{{page.section-program.section-tab.tab-menu-heading}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content">
+
+            <div class="tab-pane pt-5 fade show active " id="tab-schedule">
+                <div class="block-schedule">
+
+                    {% if page.section-program.section-tab.tab-schedule.tab-schedule-item %}
+                    {% for schedule-item in page.section-program.section-tab.tab-schedule.tab-schedule-item %}
+
+                    <div class="block-schedule-item">
+                        <strong>{{schedule-item.time}}</strong>
+                        <span>{{schedule-item.value}}</span>
+                    </div>
+
+                    {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <div class="tab-pane pt-5 fade" id="tab-lessons">
+                <div class="block-weekly-card">
+
+                    {% if page.section-program.section-tab.tab-lessons.lessons-monday %}
+                    <div class="card">
+                        {% if page.lang == 'ru' %}
+                        <div class="card-header">Пн</div>
+                        {% endif %}
+                        {% if page.lang == 'en' %}
+                        <div class="card-header">Mon</div>
+                        {% endif %}
+                        {% if page.lang == 'es' %}
+                        <div class="card-header">Lu</div>
+                        {% endif %}
+                        <div class="card-body">
+                            {% for lessons-item in page.section-program.section-tab.tab-lessons.lessons-monday %}
+                            <div class="card-body-header">{{ lessons-item.time }}</div>
+                            {{ lessons-item.lesson | markdownify }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if page.section-program.section-tab.tab-lessons.lessons-tuesday %}
+                    <div class="card">
+                        {% if page.lang == 'ru' %}
+                        <div class="card-header">Вт</div>
+                        {% endif %}
+                        {% if page.lang == 'en' %}
+                        <div class="card-header">Tue</div>
+                        {% endif %}
+                        {% if page.lang == 'es' %}
+                        <div class="card-header">Ma</div>
+                        {% endif %}
+                        <div class="card-body">
+                            {% for lessons-item in page.section-program.section-tab.tab-lessons.lessons-tuesday %}
+                            <div class="card-body-header">{{ lessons-item.time }}</div>
+                            {{ lessons-item.lesson | markdownify }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if page.section-program.section-tab.tab-lessons.lessons-wednesday %}
+                    <div class="card">
+                        {% if page.lang == 'ru' %}
+                        <div class="card-header">Ср</div>
+                        {% endif %}
+                        {% if page.lang == 'en' %}
+                        <div class="card-header">Wed</div>
+                        {% endif %}
+                        {% if page.lang == 'es' %}
+                        <div class="card-header">Mi</div>
+                        {% endif %}
+                        <div class="card-body">
+                            {% for lessons-item in page.section-program.section-tab.tab-lessons.lessons-wednesday %}
+                            <div class="card-body-header">{{ lessons-item.time }}</div>
+                            {{ lessons-item.lesson | markdownify }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if page.section-program.section-tab.tab-lessons.lessons-thursday %}
+                    <div class="card">
+                        {% if page.lang == 'ru' %}
+                        <div class="card-header">Чт</div>
+                        {% endif %}
+                        {% if page.lang == 'en' %}
+                        <div class="card-header">Thu</div>
+                        {% endif %}
+                        {% if page.lang == 'es' %}
+                        <div class="card-header">Ju</div>
+                        {% endif %}
+                        <div class="card-body">
+                            {% for lessons-item in page.section-program.section-tab.tab-lessons.lessons-thursday %}
+                            <div class="card-body-header">{{ lessons-item.time }}</div>
+                            {{ lessons-item.lesson | markdownify }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if page.section-program.section-tab.tab-lessons.lessons-friday %}
+                    <div class="card">
+                        {% if page.lang == 'ru' %}
+                        <div class="card-header">Пт</div>
+                        {% endif %}
+                        {% if page.lang == 'en' %}
+                        <div class="card-header">Fri</div>
+                        {% endif %}
+                        {% if page.lang == 'es' %}
+                        <div class="card-header">Vi</div>
+                        {% endif %}
+                        <div class="card-body">
+                            {% for lessons-item in page.section-program.section-tab.tab-lessons.lessons-friday %}
+                            <div class="card-body-header">{{ lessons-item.time }}</div>
+                            {{ lessons-item.lesson | markdownify }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <div class="tab-pane pt-5 fade" id="tab-menu">
+                <div class="block-weekly-card-menu">
+
+                    {% if page.section-program.section-tab.tab-menu.menu-monday %}
+                        <div class="card">
+                            {% if page.lang == 'ru' %}
+                            <div class="card-header">Пн</div>
+                            {% endif %}
+                            {% if page.lang == 'en' %}
+                            <div class="card-header">Mon</div>
+                            {% endif %}
+                            {% if page.lang == 'es' %}
+                            <div class="card-header">Lu</div>
+                            {% endif %}
+                            <div class="card-body">
+                                {% for menu-item in page.section-program.section-tab.tab-menu.menu-monday %}
+                                <div class="card-body-header">{{ menu-item.meal }}</div>
+                                {{ menu-item.course | markdownify }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if page.section-program.section-tab.tab-menu.menu-tuesday %}
+                    <div class="card">
+                        {% if page.lang == 'ru' %}
+                        <div class="card-header">Вт</div>
+                        {% endif %}
+                        {% if page.lang == 'en' %}
+                        <div class="card-header">Tue</div>
+                        {% endif %}
+                        {% if page.lang == 'es' %}
+                        <div class="card-header">Ma</div>
+                        {% endif %}
+                        <div class="card-body">
+                            {% for menu-item in page.section-program.section-tab.tab-menu.menu-tuesday %}
+                            <div class="card-body-header">{{ menu-item.meal }}</div>
+                            {{ menu-item.course | markdownify }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if page.section-program.section-tab.tab-menu.menu-wednesday %}
+                    <div class="card">
+                        {% if page.lang == 'ru' %}
+                        <div class="card-header">Ср</div>
+                        {% endif %}
+                        {% if page.lang == 'en' %}
+                        <div class="card-header">Wed</div>
+                        {% endif %}
+                        {% if page.lang == 'es' %}
+                        <div class="card-header">Mi</div>
+                        {% endif %}
+                        <div class="card-body">
+                            {% for menu-item in page.section-program.section-tab.tab-menu.menu-wednesday %}
+                            <div class="card-body-header">{{ menu-item.meal }}</div>
+                            {{ menu-item.course | markdownify }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if page.section-program.section-tab.tab-menu.menu-thursday %}
+                    <div class="card">
+                        {% if page.lang == 'ru' %}
+                        <div class="card-header">Чт</div>
+                        {% endif %}
+                        {% if page.lang == 'en' %}
+                        <div class="card-header">Thu</div>
+                        {% endif %}
+                        {% if page.lang == 'es' %}
+                        <div class="card-header">Ju</div>
+                        {% endif %}
+                        <div class="card-body">
+                            {% for menu-item in page.section-program.section-tab.tab-menu.menu-thursday %}
+                            <div class="card-body-header">{{ menu-item.meal }}</div>
+                            {{ menu-item.course | markdownify }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if page.section-program.section-tab.tab-menu.menu-friday %}
+                    <div class="card">
+                        {% if page.lang == 'ru' %}
+                        <div class="card-header">Пт</div>
+                        {% endif %}
+                        {% if page.lang == 'en' %}
+                        <div class="card-header">Fri</div>
+                        {% endif %}
+                        {% if page.lang == 'es' %}
+                        <div class="card-header">Vi</div>
+                        {% endif %}
+                        <div class="card-body">
+                            {% for menu-item in page.section-program.section-tab.tab-menu.menu-friday %}
+                            <div class="card-body-header">{{ menu-item.meal }}</div>
+                            {{ menu-item.course | markdownify }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Place Section -->
+<section id="place" class="section bg-lightest">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-baseline flex-wrap mb-5">
+            <h2 class="h2 t-line">{{page.section-place.section-heading}}</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3">
+                <p>{{page.section-place.description}}</p>
+            </div>
+            <div class="col-xl-9">
+                <div id="carouselMain" class="carousel slide block-carousel" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        {% for photo-item in page.section-place.photos %}
+                            <li data-target="#carouselMain" data-slide-to="{{forloop.index0}}" class="{% if forloop.index0 == 0 %}active{% endif %}"></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner">
+                        {% for photo-item in page.section-place.photos %}
+                            <div class="carousel-item{% if forloop.index0 == 0 %} active{% endif %}"
+                                 style="background-image: url('{{ photo-item.photo }}')">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselMain" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Persons Section -->
+<section id="persons" class="section">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-baseline flex-wrap mb-5">
+            <h2 class="h2 t-line">{{page.section-persons.section-heading}}</h2>
+        </div>
+
+        <div class="block-persons">
+
+            {% for persons-item in page.section-persons.persons %}
+                <a class="block-persons-item" data-toggle="modal" data-target=".js-modal-person-{{forloop.index0}}" href="#">
+                    <img width="200" height="200" src="{{persons-item.photo}}">
+                    <h3>{{persons-item.name}}</h3>
+                    <p class="text-dark fw-m">{{persons-item.position}}</p>
+                </a>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="section bg-lightest">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-baseline flex-wrap mb-5">
+            <h2 class="h2 t-line">{{page.section-pricing.section-heading}}</h2>
+            <span class="text-purple fw-m">{{page.section-pricing.extra-text}}</span>
+        </div>
+
+        <div class="block-pricing">
+
+            {% for pricing-row in page.section-pricing.group-row %}
+
+                {% unless pricing-row.group-row-heading == empty %}
+                <div class="mb-4 mt-5">
+                    <h4>{{pricing-row.group-row-heading}}</h4>
+                    {% if pricing-row.group-row-subheading %}<div class="fs-s text-muted">{{pricing-row.group-row-subheading}}</div>{% endif %}
+                </div>
+                {% endunless %}
+
+                <div class="row">
+                    {% for pricing-group in pricing-row.group %}
+                    <div class="col-sm-6 col-lg-3 block-pricing-item">
+                        <div class="card{% if pricing-group.group-special %} card-special{% endif %}">
+                            <div class="card-body">
+                                <p class="price-subtitle">{{pricing-group.group-desc}}</p>
+                                <h5 class="price-main">{{pricing-group.group-price}}
+                                    <small>{{pricing-group.group-price-text}}</small>
+                                </h5>
+                                {% if pricing-group.group-price-extra %}<div class="price-secondary">{{pricing-group.group-price-extra}}<small>{{pricing-group.group-price-extra-text}}</small></div>{% endif %}
+                                {% if pricing-group.group-comment %}<p class="price-text">{{pricing-group.group-comment}}</p>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Contacts -->
+<section id="contact" class="section text-white bg-grad pb-5">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-baseline flex-wrap mb-5">
+            <h2 class="h2 t-line">{{page.section-contact.section-heading}}</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p class="fw-l">{{page.section-contact.name}}</p>
+                <p>
+                    {% if page.section-contact.phone %}
+                        {{page.section-contact.phone}}
+                    {% endif %}
+                    <br>
+                    {% if page.section-contact.viber %}
+                        Viber: {{page.section-contact.viber}}
+                    {% endif %}
+                    <br>
+                    {% if page.section-contact.skype %}
+                        Skype: <a href="skype:{{page.section-contact.skype}}?call">{{page.section-contact.skype}}</a>
+                    {% endif %}
+                </p>
+
+                {% if page.section-contact.socials %}
+                    <p>
+                        {% for social in page.section-contact.socials %}
+                            <a href="{{social.socials-link}}" target="_blank"><strong>{{social.socials-name}}</strong></a><br>
+                        {% endfor %}
+                    </p>
+                {% endif %}
+
+            </div>
+            <div class="col-md-6">
+                <p class="fw-l">{{page.section-contact.address}}</p>
+                <p class="text-light">{{page.section-contact.route}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if page.section-contact.map %}
+<div class="block-map"><iframe src="{{page.section-contact.map}}" width="100%" height="380" frameborder="0"></iframe></div>
+{% endif %}
+
+<!-- Lessons Modals -->
+<!--<div class="modal fade block-modal js-modal-lesson-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="h2 mb-4">Петербурговедение</h3>
+                <p>Чувствовать себя частью большого мира и красивого города – это то, что нужно маленькому гражданину с
+                    самого
+                    раннего возраста. Мы живем в городе, полном исторических и культурных традиций. Прикосновение к
+                    прекрасным
+                    творениям искусства, истории города и его замечательных жителей – неотъемлемая часть целостного
+                    воспитания.</p>
+
+                <div class="embed-responsive embed-responsive-16by9 my-4">
+                    <iframe class="embed-responsive-item" width="560" height="315"
+                            src="https://www.youtube.com/embed/q72A9UZSA7Q?rel=0" frameborder="0"
+                            allowfullscreen></iframe>
+                </div>
+
+                <p>Темы, о которых мы узнаем:</p>
+
+                <ul>
+                    <li>Что такое город, страна? В каком городе я живу?</li>
+                    <li>Истоки Петербурга</li>
+                    <li>Основатель Санкт-Петербурга Петр I</li>
+                    <li>Символы, герб города</li>
+                    <li>Петропавловская крепость</li>
+                    <li>Адмиралтейство и флот</li>
+                    <li>Кунсткамера, Университет, музеи наук</li>
+                    <li>Эрмитаж/ Зимний Дворец, Дворцовая площадь</li>
+                    <li>Река Нева, другие реки, каналы, мосты, острова</li>
+                    <li>Невский проспект</li>
+                    <li>Летний Сад</li>
+                    <li>Соборы города: Исаакиевский, Казанский, Спасо-Преображенский и др.</li>
+                    <li>Известные и интересные театры города</li>
+                    <li>Знаменитые люди Санкт-Петербурга: писатели, художники, общественные деятели и т.д.</li>
+                </ul>
+                <p>В ходе учения воспитанники играют в дидактические и подвижные игры, рисуют, знакомятся с картой,
+                    составляют
+                    свою ленту времени, слушают и читают рассказы, сказки и заметки о Санкт-Петербурге и, конечно, ходят
+                    знакомиться с родным городом. Нам повезло находиться в самом сердце города с наследием, и обычная
+                    прогулка
+                    может стать настоящим приключением.</p>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<!-- Persons Modals -->
+{% for persons-item in page.section-persons.persons %}
+<div class="modal fade block-modal js-modal-person-{{forloop.index0}}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="text-center">
+                    <h3 class="h2">{{persons-item.name}}</h3>
+                    <p class="text-muted fs-m fw-m">{{persons-item.position}}</p>
+                    <img width="300" class="rounded my-5"
+                         src="{{persons-item.photo}}">
+                </div>
+                {{persons-item.desc}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<!-- Order Modal -->
+{% include signup.html %}
