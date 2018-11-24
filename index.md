@@ -452,7 +452,7 @@ section-pricing:
           group-price: '4050'
           group-price-text: ₽ в сутки
       group-row-heading: Почасовое пребывание
-      group-row-subheading: Питание оплачивается отдельно +100 р каждый прием пищи
+      group-row-subheading: ''
     - group:
         - group-comment: ''
           group-desc: Группа полного дня 5 дней в неделю
