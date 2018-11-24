@@ -418,6 +418,34 @@ section-pricing:
         Стоимость включает в себя двух- или трехразовое питание — от 150 до 350
         рублей в день в зависимости от времени посещения
     - group:
+        - group-comment: ''
+          group-desc: С 8-00 до 22-00. Будни
+          group-price: '1850'
+          group-price-text: ₽ за день
+        - group-comment: ''
+          group-desc: С 8-00 до 22-00. Выходные и праздничные дни
+          group-price: '2350'
+          group-price-text: ₽ за день
+        - group-desc: '22:00 – 8:00. Будни'
+          group-price: '1150'
+          group-price-text: ₽ за ночь
+        - group-desc: '22:00 – 8:00. Выходные дни'
+          group-price: '1450'
+          group-price-text: ₽ за ночь
+        - group-desc: '19:00 – 8:00. Будни'
+          group-price: '1700'
+          group-price-text: ₽ за ночь
+        - group-desc: '19:00 – 8:00. Выходные дни'
+          group-price: '2000'
+          group-price-text: ₽ за ночь
+        - group-desc: '8:00 – 8:00. Будни'
+          group-price: '3250'
+          group-price-text: ₽ в сутки
+        - group-desc: '8:00 – 8:00. Выходные дни'
+          group-price: '4050'
+          group-price-text: ₽ в сутки
+      group-row-heading: Разовое посещение
+    - group:
         - group-comment: >-
             пребывание до пяти часов оплачивается по часам, дольше пяти часов -
             как день
@@ -433,24 +461,6 @@ section-pricing:
         - group-desc: 'После 22-00, если ребёнок не остаётся на ночь'
           group-price: '450'
           group-price-text: ₽ в час
-        - group-desc: '19:00 – 8:00. Будни'
-          group-price: '1700'
-          group-price-text: ₽ за ночь
-        - group-desc: '22:00 – 8:00. Будни'
-          group-price: '1150'
-          group-price-text: ₽ за ночь
-        - group-desc: '8:00 – 8:00. Будни'
-          group-price: '3250'
-          group-price-text: ₽ в сутки
-        - group-desc: '19:00 – 8:00. Выходные дни'
-          group-price: '2000'
-          group-price-text: ₽ за ночь
-        - group-desc: '22:00 – 8:00. Выходные дни'
-          group-price: '1450'
-          group-price-text: ₽ за ночь
-        - group-desc: '8:00 – 8:00. Выходные дни'
-          group-price: '4050'
-          group-price-text: ₽ в сутки
       group-row-heading: Почасовое пребывание
       group-row-subheading: ''
     - group:
