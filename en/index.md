@@ -339,8 +339,8 @@ section-persons:
   persons:
     - desc: >-
         Svetlana has got higher education in Music and Teaching. It means that
-        music is always playing in our Home when she is in! Svetlana has been
-        working with children every day for 20 years - at first it was in
+        music sounds in our Home most of the time when she is in! Svetlana has
+        been working with children every day for 20 years - at first it was in
         development centres for children, then she was working for a long time
         as the Head of year-round health improvement camp for children. And now,
         every day she brings activity, joy and the feeling of stability to our
@@ -357,7 +357,7 @@ section-persons:
       position: 'Early education teacher, Music teacher'
     - desc: >-
         I graduated from the Spanish Department of the Faculty of Foreign
-        Languages in the Russian State Pedagogical University n.a. A.I. Gertsen
+        Languages in the Russian State Pedagogical University n.a. A.I. Herzen
         in 2002. I have been teaching Spanish to little ones and adults since
         2000. I believe that learning a foreign language must be accompanied by
         the feeling of freedom and pleasure, it refers to any foreign language,
@@ -395,7 +395,7 @@ section-persons:
       photo: /assets/img/натан_300.jpg
       position: Play lessons of English for the youngest children
     - desc: >-
-        I graduated from the Russian State Pedagogical University  n.a. Gertsen,
+        I graduated from the Russian State Pedagogical University  n.a. Herzen,
         faculty of Correctional Pedagogy (Honours).
 
          Then I studied at the Institute of psychotherapy and counseling "Garmoniia", consulting psychologist, 2008.
