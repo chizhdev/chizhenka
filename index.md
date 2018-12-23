@@ -423,11 +423,11 @@ section-pricing:
         рублей в день в зависимости от времени посещения
     - group:
         - group-comment: ''
-          group-desc: С 8-00 до 22-00. Будни
+          group-desc: С 8-00 до 19-00. Будни
           group-price: '1850'
           group-price-text: ₽ за день
         - group-comment: ''
-          group-desc: С 8-00 до 22-00. Выходные и праздничные дни
+          group-desc: С 8-00 до 19-00. Выходные и праздничные дни
           group-price: '2350'
           group-price-text: ₽ за день
         - group-desc: '22:00 – 8:00. Будни'
